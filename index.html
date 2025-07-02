@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>simpleqrgen</title>
+    <!-- QRCode.js knihovna -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Simple QR </h1>
+    <h2>Website for generating your QR code, simply and fast</h2>
+    <input type="text" id="urlInput" placeholder="Insert link here..." /> <br>
+    
+    <button onclick="generateQRCode()">Generate QR</button>
+    <div id="qrcode"></div>
+    <button id="downloadBtn" onclick="downloadQRCode()">Download QR</button>
+  </div>
+
+
+  
+
+</body>
+</html>
+ 
