@@ -1,0 +1,63 @@
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      display: grid;   
+      place-items: center;
+      background-color: black;
+      color: white;
+    }
+    h1{
+      text-align: center;
+    }
+    h2{
+      text-align: center;
+    }
+    #qrcode {
+      background-color: white;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      padding: 10px;
+      background: white;
+      display: block;
+      border-radius: 12px;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+
+
+    #qrcode.visible {
+      opacity: 1;
+    }
+    button {
+      margin-top: 15px;
+      margin-bottom: 20px;
+      padding: 10px 20px;
+      width: 200px;
+      font-size: 18px;
+      display: grid;
+      border-radius: 8px;
+      border-style: none;
+      background-color: rgb(33, 240, 255);
+    }
+    input {
+      width: 300px;
+      padding: 10px;
+      font-size: 18px;
+      border-radius: 8px;
+      border-style: none;
+      display: grid;
+    }
+
+    .wrap{
+        align-items: center;
+        justify-content: center;
+        place-items: center;
+    }
+
+    #downloadBtn {
+    display: block;              /* tlačítko se chová jako blokový prvek */
+    margin: 20px auto 0 auto;    /* automatické zarovnání na střed */
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+
