@@ -10,6 +10,16 @@
   <script src="script.js"></script>
 </head>
 <body>
+   <nav>
+    <div class="logo"></div>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <div class="nav-links" id="navLinks">
+      <a href="#">What is QR?</a>
+      <a href="#">About</a>
+      <a href="#">Q&A</a>
+      <a href="#">Kontakt</a>
+    </div>
+  </nav>
   <div class="wrap">
     <h1>Simple QR </h1>
     <h2>Website for generating your QR code, simply and fast</h2>
@@ -17,10 +27,9 @@
     
     <button onclick="generateQRCode()">Generate QR</button>
     <div id="qrcode"></div>
-    <button id="downloadBtn" onclick="downloadQRCode()">Download QR</button>
+    <button id="downloadBtn" onclick="downloadQRCode()">Download PNG</button>
   </div>
 
-  <p>ahoj</p>
   <p></p>
 </body>
 </html>

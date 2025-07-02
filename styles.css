@@ -1,63 +1,169 @@
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      display: grid;   
-      place-items: center;
-      background-color: black;
-      color: white;
-    }
-    h1{
-      text-align: center;
-    }
-    h2{
-      text-align: center;
-    }
-    #qrcode {
-      background-color: white;
-      margin-top: 10px;
-      margin-bottom: 10px;
-      padding: 10px;
-      background: white;
-      display: block;
-      border-radius: 12px;
-      opacity: 0;
-      transition: opacity 0.6s ease;
-    }
-
-
-    #qrcode.visible {
-      opacity: 1;
-    }
-    button {
-      margin-top: 15px;
-      margin-bottom: 20px;
-      padding: 10px 20px;
-      width: 200px;
-      font-size: 18px;
-      display: grid;
-      border-radius: 8px;
-      border-style: none;
-      background-color: rgb(33, 240, 255);
-    }
-    input {
-      width: 300px;
-      padding: 10px;
-      font-size: 18px;
-      border-radius: 8px;
-      border-style: none;
-      display: grid;
-    }
-
-    .wrap{
-        align-items: center;
-        justify-content: center;
-        place-items: center;
-    }
-
-    #downloadBtn {
-    display: block;              /* tlačítko se chová jako blokový prvek */
-    margin: 20px auto 0 auto;    /* automatické zarovnání na střed */
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    display: grid;   
+    place-items: center;
+    background-color: black;
+    color: white;
+    margin: 0;
+  }
+  h1{
+    text-align: center;
+  }
+  h2{
+    text-align: center;
+  }
+  #qrcode {
+    background-color: white;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    background: white;
+    display: block;
+    border-radius: 12px;
     opacity: 0;
     transition: opacity 0.6s ease;
   }
 
+
+  #qrcode.visible {
+    opacity: 1;
+  }
+  button {
+    margin-top: 15px;
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    width: 200px;
+    font-size: 18px;
+    display: grid;
+    border-radius: 8px;
+    border-style: none;
+    background-color: rgb(33, 240, 255);
+  }
+
+  input {
+    width: 300px;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 8px;
+    border-style: none;
+    display: grid;
+  }
+
+  .wrap{
+      align-items: center;
+      justify-content: center;
+      place-items: center;
+  }
+
+  #downloadBtn {
+  display: block;              /* tlačítko se chová jako blokový prvek */
+  margin: 20px auto 0 auto;    /* automatické zarovnání na střed */
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  }
+
+  nav {
+  background-color: #1a1a1a;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  
+  max-width: 1000px;
+}
+nav button{
+  width: 70px;
+}
+
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  padding: 5px;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: rgb(33, 240, 255);
+}
+
+.menu-toggle {
+  display: none;
+  font-size: 1.5em;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  h1{
+    margin-top: 30px;
+  }
+
+  body{
+    place-items: inherit;
+  }
+  
+  nav {
+    padding: 0;
+    margin: 0;
+    width: 70px;       /* ⬅ zmenšená šířka */
+    position: absolute; /* ⬅ umožní zarovnání */
+    right: 10px;            /* ⬅ zarovná doprava */
+    top: 0;
+    border-radius: 0 0 8px 8px; /* ⬅ volitelné: zaoblení levého dolního rohu */
+    z-index: 999; 
+  }
+
+  .menu-toggle {
+    display: block;
+    margin: 0px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    background-color: #1a1a1a;
+    position: absolute;
+    top: 40px;
+
+    right: 0;
+    gap: 0;
+    border-radius: 5px;
+    text-align: center;
+    width: 190px;
+
+    /* Animace */
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    padding: 0 10px;
+    transition:
+      max-height 0.4s ease-in-out,
+      opacity 0.3s ease-in-out,
+      padding 0.3s ease-in-out,
+      gap 0.3s ease-in-out;
+  }
+
+  .nav-links.active {
+    max-height: 500px;
+    opacity: 1;
+    padding: 10px;
+    gap: 15px;
+  }
+}

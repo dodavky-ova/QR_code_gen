@@ -41,3 +41,7 @@
       link.download = "qrcode.png";
       link.click();
     }
+
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("active");
+    }
