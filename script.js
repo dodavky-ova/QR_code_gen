@@ -45,3 +45,22 @@
     function toggleMenu() {
       document.getElementById("navLinks").classList.toggle("active");
     }
+
+
+  let lastScrollTop = 0;
+  const navbar = document.getElementById('navbar');
+
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScroll > lastScrollTop && currentScroll > 50) {
+      // Scrolluješ dolů
+      navbar.classList.add('hidden');
+    } else {
+      // Scrolluješ nahoru
+      navbar.classList.remove('hidden');
+    }
+
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+  });
+
