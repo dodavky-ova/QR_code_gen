@@ -1,46 +1,57 @@
-    let qr;
+ let canvas;
 
-    function generateQRCode() {
-      const url = document.getElementById("urlInput").value;
-      const qrcodeContainer = document.getElementById("qrcode");
-      qrcodeContainer.innerHTML = ""; // Vymaže předchozí QR
+function generateQRCode() {
+  const url = document.getElementById("urlInput").value;
+  const qrcodeContainer = document.getElementById("qrcode");
+  qrcodeContainer.innerHTML = ""; // Vyčisti předchozí
 
-      if (!url) {
-        alert("Link is not valid. Insert valid link");
-        return;
-      }
-      
-      qr = new QRCode(qrcodeContainer, {
-        text: url,
-        width: 256,
-        height: 256,
-        correctLevel: QRCode.CorrectLevel.H,
-        opacity: 1
-      });
-        
-      // Zobrazit kontejner QR kódu (s paddingem a pozadím)
-      qrcodeContainer.classList.add("visible");
+  if (!url) {
+    alert("Link is not valid. Insert valid link");
+    return;
+  }
 
-      // Počkej chvilku, než se vygeneruje QR kód, pak ukaž tlačítko
-      setTimeout(() => {
-        document.getElementById("downloadBtn").style.opacity = 1;
-      }, 500);
+  canvas = document.createElement("canvas");
+  qrcodeContainer.appendChild(canvas);
+
+  QRCode.toCanvas(canvas, url, {
+    width: 256,
+    margin: 2,
+    color: {
+      dark: "#000000",
+      light: "#ffffff"
+    }
+  }, function (error) {
+    if (error) {
+      console.error(error);
+      alert("Failed to generate QR code.");
+      return;
     }
 
-    
+    qrcodeContainer.classList.add("visible");
 
-    function downloadQRCode() {
-      const img = document.querySelector("#qrcode img");
-      if (!img) {
-        alert("QR wasn't generated yet");
-        return;
-      }
+    // Zobrazit download tlačítko
+    setTimeout(() => {
+      document.getElementById("downloadBtn").style.opacity = 1;
+    }, 300);
+  });
+}
 
-      const link = document.createElement("a");
-      link.href = img.src;
-      link.download = "qrcode.png";
-      link.click();
-    }
+function downloadQRCode() {
+  if (!canvas) {
+    alert("QR wasn't generated yet");
+    return;
+  }
+
+  const link = document.createElement("a");
+  link.href = canvas.toDataURL("image/png");
+  link.download = "qrcode.png";
+
+  // Simuluj kliknutí (funguje i na mobilech)
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
 
     function toggleMenu() {
       document.getElementById("navLinks").classList.toggle("active");
