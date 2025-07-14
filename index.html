@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <title>makeqrnow.com</title>
     <!-- QRCode.js knihovna -->
-  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script> 
   <link rel="stylesheet" href="./styles.css">
   <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
   <script src="./script.js"></script>
@@ -15,13 +15,14 @@
     <div class="logo"></div>
     <button class="menu-toggle" onclick="toggleMenu()">☰</button>
     <div class="nav-links" id="navLinks">
-      <a href="#whatisqr">What is QR?</a>
-      <a href="#about">About</a>
-      <a href="#faq">FAQ</a>
-      <a href="#contactus">Contact us</a>
+      <a href="/index.html">Generator</a>
+      <a href="/whatisqr.html">What is QR?</a>
+      <a href="/index.html#about">About</a>
+      <a href="/index.html#faq">FAQ</a>
+      <a href="/contactus.html">Contact us</a>
     </div>
   </nav>
-  <div class="wrap">
+   <div class="wrap">
     <h1>MakeQRnow</h1>
     <h2>Website for generating your QR code, simply and fast</h2>
     <input type="text" id="urlInput" placeholder="Insert link here..." /> <br>
@@ -31,34 +32,19 @@
     <button id="downloadBtn" onclick="downloadQRCode()">Download PNG</button>
   </div>
 
-  <h3 id="whatisqr">What is QR?</h3>
-  <div> 
-    <p>A QR code (Quick Response code) is a type of two-dimensional barcode that stores 
-    information in a machine-readable format. Originally created in Japan for tracking
-    automotive parts, QR codes have become widely used for linking to websites, apps,
-    and digital content. </p>
-    <p>Unlike traditional barcodes, QR codes can hold much more data and can be scanned 
-    from any angle using smartphones or QR code readers. When scanned, a QR code can 
-    instantly open a URL, show contact details, display text, or trigger app actions 
-    - making it a fast and convenient way to connect the physical world with the 
-    digital one. </p>
-    <p>Today, QR codes are everywhere - on business cards, menus, posters, product 
-    packaging, and even in advertising. They provide a seamless way for users to access
-    information or take action with just a single scan.</p>
-  </div>
- 
+
   <h3 id="about">About</h3>
-  <div>
-    <p>This website was built as a lightweight tool to quickly generate QR codes from any
-    link. It’s a small personal project designed to make QR creation fast, easy, and 
-    accessible to everyone - no complicated setup or unnecessary features.</p>
-    <p>Whether you're creating a QR code for a business card, event poster, or social 
-    media profile, this tool helps you do it in just a few clicks. Simply paste your 
-    link, and your QR code is ready to download and share.</p>
-    <p>The goal of this project is to provide a smooth, user-friendly experience for 
-    anyone who needs a QR code - anytime, anywhere. <br>
-    Best of all, it's completely free to use.</p>
-  </div>
+    <div>
+      <p>This website was built as a lightweight tool to quickly generate QR codes from any
+      link. It’s a small personal project designed to make QR creation fast, easy, and 
+      accessible to everyone - no complicated setup or unnecessary features.</p>
+      <p>Whether you're creating a QR code for a business card, event poster, or social 
+      media profile, this tool helps you do it in just a few clicks. Simply paste your 
+      link, and your QR code is ready to download and share.</p>
+      <p>The goal of this project is to provide a smooth, user-friendly experience for 
+      anyone who needs a QR code - anytime, anywhere. <br>
+      Best of all, it's completely free to use.</p>
+    </div>
 
   <h3 id="faq">FAQ</h3>
   <div>
@@ -87,17 +73,7 @@
     <p>A: Nope — no registration or sign-in required. Just paste your link and download
     your QR code.</p>
   </div>
-  
-  <h3 id="contactus">Contact us</h3>
-  <div>
-    <p>Have questions, feedback, or suggestions? We'd love to hear from you!</p>
-    <p>Feel free to reach out if you encounter any issues, have ideas for new features,
-    or just want to say hi.</p>
-    <p>Email: <a href="mailto:sofarnodomain@email.com">sofarnodomain@email.com</a></p>
-    <p>Feel free to reach out if you encounter any issues, have ideas for new features, 
-    or just want to say hi. Since this is a small personal project, responses might 
-    take a little time — but we do read every message.</p>
-  </div>
+
   
   <footer>
     <p>&copy; 2025 QR Code Generator. <br> All rights reserved.</p>

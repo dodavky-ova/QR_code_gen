@@ -16,6 +16,7 @@
     margin: 0;
   }
 
+
   h1{
     text-align: center;
   }
@@ -103,6 +104,10 @@
   border-radius: 8px;
   margin-bottom: 10px;
   max-width: 1000px;
+}
+
+.page-container h3{
+  text-align: center;
 }
 
 footer{
