@@ -2,12 +2,7 @@
   box-sizing: border-box;
   }
   
-  @font-face {
-    font-family: 'H1font';
-    src: url('./fonts/Cute_Font/CuteFont-Regular.ttf');
-    font-weight: normal;
-    font-style: normal;
-  }
+
  html {
     scroll-behavior: smooth;
   }
@@ -19,28 +14,40 @@
     place-items: center;
     background-color: black;
     color: white;
-    margin: 0;
+  }
+
+  .cute-font-regular {
+  font-family: "Cute Font", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin: -100px;
+  gap: 0px;
   }
 
 
   h1{
     text-align: center;
-    font-family: 'H1font', sans-serif;
-    font-size: 70px;
+    font-family: 'Cute Font';
+    font-size: 90px;
+    margin: 0px;
   }
 
   h2{
     text-align: center;
+    font-size: 30px;
+    margin: 0px 0px 30px 0px;
   }
 
   h3{
-    font-size: 23px;
-    margin-top: 35px;
+    font-size: 60px;
+    font-family: 'Cute Font';
+    margin: 20px 0px 0px 0px;
   }
 
   h4{
     margin: 0px 0px 5px 0px;
     font-size: 21px;
+    margin: 0px;
   }
   p{
     max-width: 700px;
