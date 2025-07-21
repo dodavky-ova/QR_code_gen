@@ -1,7 +1,13 @@
  * {
   box-sizing: border-box;
   }
- 
+  
+  @font-face {
+    font-family: 'H1font';
+    src: url('./fonts/Cute_Font/CuteFont-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
  html {
     scroll-behavior: smooth;
   }
@@ -19,6 +25,8 @@
 
   h1{
     text-align: center;
+    font-family: 'H1font', sans-serif;
+    font-size: 70px;
   }
 
   h2{
