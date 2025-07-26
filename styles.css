@@ -181,14 +181,13 @@ nav button{
 nav {
   padding: 0;
   margin: 0;
-  margin-left: 660px;
   width: 70px;       /* ⬅ zmenšená šířka */
   position: absolute;            /* ⬅ zarovná doprava */
   top: 0;
   border-radius: 0 0 8px 8px; /* ⬅ volitelné: zaoblení levého dolního rohu */
   z-index: 999; 
   background-color: #1a1a1a;
-
+  margin-left: 600px;
 }
 
 .menu-toggle {
@@ -229,8 +228,8 @@ nav {
 
 @media screen and (max-width: 800px){
   nav{
-    margin-left: 80%;
     margin-right: 1%;
+    margin-left: 80%;
   }
 
   img{
