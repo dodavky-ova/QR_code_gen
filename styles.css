@@ -17,43 +17,57 @@
   }
 
   .cute-font-regular {
-  font-family: "Cute Font", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  margin: -100px;
-  gap: 0px;
+    font-family: "Cute Font", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: -100px;
+    gap: 0px;
   } 
 
 
+  img{
+    width: auto;
+    height: auto;
+    max-width: 320px;
+    margin-top: 40px;
+  }
+
+  li{
+    font-size: 19px;
+    margin-left: 10px;
+    padding-bottom: 10px;
+    list-style: disc;
+    max-width: 660px;
+  }
+
   h1{
     text-align: center;
-    font-family: 'Cute Font';
-    font-size: 90px;
+    font-size: 30px;
+    margin: 0px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+  }
+
+  h2{
+    font-family: "Cute Font";
+    text-align: center;
+    font-size: 50px;
     margin: 0px;
     margin-top: 20px;
   }
 
-  h2{
-    text-align: center;
-    font-size: 30px;
-    margin: 0px 0px 30px 0px;
-  }
-
   h3{
-    font-size: 60px;
-    font-family: 'Cute Font';
-    margin: 20px 0px 0px 0px;
-  }
-
-  h4{
-    margin: 0px 0px 5px 0px;
+    margin: 0px 0px 0px 0px;
     font-size: 21px;
     margin: 0px;
+    margin-bottom: 5px;
+    max-width: 700px;
   }
+
   p{
     max-width: 700px;
     font-size: 19px;
-    margin: 0 0 15px 0;
+    margin: 0px 0 15px 0;
   }
   a{
     font-size: 19px;
@@ -89,12 +103,14 @@
   }
 
   input {
-    width: 300px;
+    width: 276px;
     padding: 10px;
     font-size: 18px;
     border-radius: 8px;
     border-style: none;
     display: grid;
+    margin-top: 25px;
+    margin-bottom: 0px;
   }
 
   .wrap{
@@ -219,6 +235,9 @@ nav {
     margin-right: 1%;
   }
 
+  img{
+    width: 260px;
+  }
   
 }
 
