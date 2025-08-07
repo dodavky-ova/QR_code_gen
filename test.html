@@ -5,8 +5,7 @@
   <meta charset="UTF-8">
     <!-- QRCode.js knihovna -->
   <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script> 
-  <link rel="stylesheet" href="./styles.css">
-  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+  <link rel="stylesheet" href="./teststyles.css">
   <script src="./script.js"></script>
   <title>makeqrnow.com</title>
   <meta name="description" content="Generate free QR codes instantly with MakeQRNow – a fast, simple, and secure QR code generator. No registration needed. Create static QR codes for websites, contacts, Wi-Fi, and more.">
@@ -23,7 +22,7 @@
   <link rel="manifest" href="/favicon_io/site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cute+Font&display=swap" rel="stylesheet">
+
 </head>
 <body>
   <nav id="navbar">
@@ -38,23 +37,41 @@
       <a href="/index.html#usecases">QR use cases</a>
     </div>
   </nav>
-  <a href="https://makeqrnow.com"><img id="logoimg" src="/images/logo1.png" alt=""></a>
-  <h1 id="contactus">Contact us</h1>
-  <div>
-      <p>Have questions, feedback, or suggestions? We'd love to hear from you!</p>
-      <p>Feel free to reach out if you encounter any issues, have ideas for new features,
-      or just want to say hi.</p>
-      <p>Email: <a href="info@makeqrnow.com">info@makeqrnow.com</a></p>
-      <p>Feel free to reach out if you encounter any issues, have ideas for new features, 
-      or just want to say hi. Since this is a small personal project, responses might 
-      take a little time — but we do read every message.</p>
+
+  <div class="generator-wrapper">
+  <div class="toggle-buttons">
+    <button id="showLinkGen" class="active-toggle" onclick="showPanel('link')">Link QR</button>
+    <button id="showWifiGen" onclick="showPanel('wifi')">Wi-Fi QR</button>
   </div>
 
- 
-  
-  <footer style="margin-top: 60vh;">
-    <p>&copy; 2025 QR Code Generator. <br> All rights reserved.</p>
-  </footer>
+  <div class="panels">
+    <!-- Link QR Generator Panel -->
+    <div id="linkPanel" class="generator-panel visible-panel">
+      <input type="text" id="urlInput" placeholder="Insert link here..." /><br>
+      <button onclick="generateQRCode()">Generate QR</button>
+      <div id="qrcode"></div>
+      <button id="downloadBtn" onclick="downloadQRCode()">Download PNG</button>
+    </div>
+
+    <!-- Wi-Fi QR Generator Panel -->
+    <div id="wifiPanel" class="generator-panel">
+      <input type="text" id="ssid" placeholder="Wi-Fi SSID" /><br>
+      <input type="text" id="password" placeholder="Wi-Fi Password" /><br>
+      <select id="encryption">
+        <option value="WPA">WPA/WPA2</option>
+        <option value="WEP">WEP</option>
+        <option value="">None</option>
+      </select><br>
+      <button onclick="generateWiFiQRCode()">Generate Wi-Fi QR</button>
+      <div id="wifi-qrcode"></div>
+      <button id="wifiDownloadBtn" onclick="downloadWiFiQRCode()">Download PNG</button>
+    </div>
+  </div>
+</div>
+
+
+
+
 
 </body>
 </html>

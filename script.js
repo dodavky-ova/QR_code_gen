@@ -1,56 +1,106 @@
- let canvas;
+let qrCodeInstance = null;
+
+function clearQRCode() {
+  const qrContainer = document.getElementById("qrcode");
+  qrContainer.innerHTML = "";
+  qrContainer.style.opacity = 0;
+}
 
 function generateQRCode() {
-  const url = document.getElementById("urlInput").value;
-  const qrcodeContainer = document.getElementById("qrcode");
-  qrcodeContainer.innerHTML = ""; // Vyčisti předchozí
+  clearQRCode();
+  const downloadBtn = document.getElementById("downloadBtn");
+  downloadBtn.classList.add("visible");   
+  const url = document.getElementById("urlInput").value.trim();
+  if (!url) return;
 
-  if (!url) {
-    alert("Link is not valid. Insert valid link");
-    return;
-  }
+  const qrContainer = document.getElementById("qrcode");
+  qrCodeInstance = new QRCode(qrContainer, {
+    text: url,
+    width: 200,
+    height: 200,
+    correctLevel: QRCode.CorrectLevel.H
+  });
+  fadeIn(qrContainer);
+}
 
-  canvas = document.createElement("canvas");
-  qrcodeContainer.appendChild(canvas);
+function generateWifiQRCode() {
+  clearQRCode();
+  const ssid = document.getElementById("ssidInput").value.trim();
+  const encryption = document.getElementById("encryptionInput").value;
+  const password = document.getElementById("wifiPasswordInput").value.trim();
 
-  QRCode.toCanvas(canvas, url, {
-    width: 256,
-    margin: 2,
-    color: {
-      dark: "#000000",
-      light: "#ffffff"
-    }
-  }, function (error) {
-    if (error) {
-      console.error(error);
-      alert("Failed to generate QR code.");
-      return;
-    }
+  if (!ssid) return;
 
-    qrcodeContainer.classList.add("visible");
+  const wifiString = `WIFI:T:${encryption};S:${ssid};P:${password};;`;
+  const qrContainer = document.getElementById("qrcode");
+  qrCodeInstance = new QRCode(qrContainer, {
+    text: wifiString,
+    width: 200,
+    height: 200,
+    correctLevel: QRCode.CorrectLevel.H
+  });
 
-    // Zobrazit download tlačítko
-    setTimeout(() => {
-      document.getElementById("downloadBtn").style.opacity = 1;
-    }, 300);
+  fadeIn(qrContainer);
+}
+
+function fadeIn(element) {
+  element.style.opacity = 0;
+  element.style.transition = "opacity 0.5s ease-in-out";
+  requestAnimationFrame(() => {
+    element.style.opacity = 1;
   });
 }
 
-function downloadQRCode() {
-  if (!canvas) {
-    alert("QR wasn't generated yet");
-    return;
-  }
+function toggleMode(mode) {
+  const urlSection = document.getElementById("urlSection");
+  const wifiSection = document.getElementById("wifiSection");
+  const downloadBtn = document.getElementById("downloadBtn");
+  clearQRCode();
+  downloadBtn.style.display = "none";
 
+  if (mode === "wifi") {
+    urlSection.style.display = "none";
+    wifiSection.style.display = "block";
+  } else {
+    wifiSection.style.display = "none";
+    urlSection.style.display = "block";
+  }
+}
+
+function downloadQRCode() {
+  const canvas = document.querySelector("#qrcode canvas");
+  if (!canvas) return;
   const link = document.createElement("a");
   link.href = canvas.toDataURL("image/png");
   link.download = "qrcode.png";
-
-  // Simuluj kliknutí (funguje i na mobilech)
-  document.body.appendChild(link);
   link.click();
-  document.body.removeChild(link);
 }
+
+// Ukázat tlačítko pro stažení když je QR kód vygenerovaný
+const qrObserver = new MutationObserver(() => {
+  const hasCanvas = document.querySelector("#qrcode canvas") !== null;
+  const btn = document.getElementById("downloadBtn");
+  btn.style.display = hasCanvas ? "block" : "none";
+});
+
+qrObserver.observe(document.getElementById("qrcode"), { childList: true });
+
+const urlBtn = document.getElementById("urlModeBtn");
+const wifiBtn = document.getElementById("wifiModeBtn");
+
+urlBtn.classList.add("active");
+
+urlBtn.addEventListener("click", () => {
+  urlBtn.classList.add("active");
+  wifiBtn.classList.remove("active");
+  // zobraz klasický QR generátor
+});
+
+wifiBtn.addEventListener("click", () => {
+  wifiBtn.classList.add("active");
+  urlBtn.classList.remove("active");
+  // zobraz Wi-Fi generátor
+});
 
 
     function toggleMenu() {

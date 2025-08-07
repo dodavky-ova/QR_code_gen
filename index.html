@@ -6,8 +6,7 @@
     <!-- QRCode.js knihovna -->
   <script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script> 
   <link rel="stylesheet" href="./styles.css">
-  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
-  <script src="./script.js"></script>
+  <script src="./script.js" defer></script>
   <title>makeqrnow.com</title>
   <meta name="description" content="Generate free QR codes instantly with MakeQRNow – a fast, simple, and secure QR code generator. No registration needed. Create static QR codes for websites, contacts, Wi-Fi, and more.">
   <meta name="keywords" content="QR code generator, free QR code, static QR code, create QR online, QR code with link, QR code for Wi-Fi, generate QR without registration, QR code for business, QR code for menu, make QR now, makeqrnow.com">
@@ -38,15 +37,39 @@
       <a href="/index.html#usecases">QR use cases</a>
     </div>
   </nav>
-  </div>
-    <a href="https://makeqrnow.com"><img src="/images/logo1.png" alt=""></a>
+
+    <a href="https://makeqrnow.com"><img id="logoimg" src="/images/logo1.png" alt=""></a>
     <h1>Website for generating your QR code,<br>simply, fast, and for free</h1>
-    <input type="text" id="urlInput" placeholder="Insert link here..." /> <br>
     
-    <button onclick="generateQRCode()">Generate QR</button>
-    <div id="qrcode"></div>
-    <button id="downloadBtn" onclick="downloadQRCode()">Download PNG</button>
+    <div style="margin-top: 20px;">
+
+      <div id="modeToggle">
+        <button onclick="toggleMode('url')" id="urlModeBtn">URL QR</button>
+        <button onclick="toggleMode('wifi')" id="wifiModeBtn">Wi-Fi QR</button>
+      </div>
+      
+
   </div>
+
+  <!-- Sekce pro URL QR -->
+  <div id="urlSection">
+    <input type="text" id="urlInput" placeholder="Insert link here..." /> <br>
+    <button onclick="generateQRCode()">Generate QR</button>
+  </div>
+  <!-- Sekce pro Wi-Fi QR -->
+  <div id="wifiSection" style="display: none;">
+    <input type="text" id="ssidInput" placeholder="Wi-Fi name (SSID)"><br>
+    <select id="encryptionInput">
+      <option value="WPA">WPA/WPA2</option>
+      <option value="WEP">WEP</option>
+      <option value="">None</option>
+    </select><br>
+    <input type="text" id="wifiPasswordInput" placeholder="Wi-Fi password (if any)"><br>
+    <button onclick="generateWifiQRCode()">Generate Wi-Fi QR</button>
+  </div>
+  <div id="qrcode"></div>
+  <button id="downloadBtn" onclick="downloadQRCode()">Download PNG</button>
+
 
 
   <h2 id="about">About</h2>
