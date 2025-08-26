@@ -13,7 +13,7 @@
     display: grid;   
     place-items: center;
     background-color: black;
-    color: white;
+    color: #FFF1E6;
   }
 
   .cute-font-regular {
@@ -26,7 +26,11 @@
 
 
   img{
-    max-width: 320px;
+      max-width: 100%;   /* aby se obrázek zmenšoval spolu s rodičem */
+  width: 700px;      /* výchozí max velikost, pokud je místo */
+  height: auto;      /* zachování poměru stran */
+  display: block;
+  margin: 0 auto;    /* volitelné – zarovnání na střed */
   }
 
   li{
@@ -157,6 +161,9 @@ nav button{
 
 #logoimg{
   margin-top: 40px;
+  max-width: 320px;
+  height: auto;
+  width: auto;
 }
 
 .nav-links {
@@ -168,7 +175,7 @@ nav button{
 }
 
 .nav-links a {
-  color: white;
+  color: #FFF1E6;
   text-decoration: none;
   transition: color 0.3s;
 }
@@ -182,7 +189,7 @@ nav button{
   font-size: 1.5em;
   background: none;
   border: none;
-  color: white;
+  color: #FFF1E6;
   cursor: pointer;
 }
 
@@ -205,7 +212,7 @@ nav {
 #modeToggle {
   display: flex;
   justify-content: center;
-  gap: 28px;
+  gap: 30px;
   margin-top: 20px;
   flex-wrap: wrap;
 }
