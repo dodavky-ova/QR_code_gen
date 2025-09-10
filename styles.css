@@ -26,11 +26,19 @@
 
 
   img{
-      max-width: 100%;   /* aby se obrázek zmenšoval spolu s rodičem */
-  width: 700px;      /* výchozí max velikost, pokud je místo */
-  height: auto;      /* zachování poměru stran */
-  display: block;
-  margin: 0 auto;    /* volitelné – zarovnání na střed */
+    max-width: 100%;   /* aby se obrázek zmenšoval spolu s rodičem */
+    width: 230px;      /* výchozí max velikost, pokud je místo */
+    height: auto;      /* zachování poměru stran */
+    display: block;
+    margin: 0 auto;    /* volitelné – zarovnání na střed */
+  }
+
+  #imgdesign{
+    max-width: 100%;   /* aby se obrázek zmenšoval spolu s rodičem */
+    width: 700px;      /* výchozí max velikost, pokud je místo */
+    height: auto;      /* zachování poměru stran */
+    display: block;
+    margin: 0 auto;    /* volitelné – zarovnání na střed */
   }
 
   li{
